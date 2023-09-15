@@ -16,26 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg (3)" highlightedImage="bg (3)" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-JL-gEf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" highlightedImage="splash" translatesAutoresizingMaskIntoConstraints="NO" id="H1N-JL-gEf">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="tFY-06-oCi">
-                                <rect key="frame" x="146.66666666666666" y="376" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="4Ei-Q5-d98"/>
-                                    <constraint firstAttribute="width" secondItem="tFY-06-oCi" secondAttribute="height" multiplier="1:1" id="PgD-dN-8h4"/>
-                                    <constraint firstAttribute="height" constant="100" id="gM6-mn-7IL"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.7804953456" green="0.64272373910000002" blue="0.46360623839999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tFY-06-oCi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3d7-It-NpL"/>
                             <constraint firstItem="H1N-JL-gEf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="VEq-Nn-Nr4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="H1N-JL-gEf" secondAttribute="trailing" id="ge7-Ro-dnF"/>
                             <constraint firstAttribute="bottom" secondItem="H1N-JL-gEf" secondAttribute="bottom" id="nXV-2t-XTV"/>
-                            <constraint firstItem="tFY-06-oCi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="vO9-hl-ciQ"/>
                             <constraint firstItem="H1N-JL-gEf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xLO-0a-4Sc"/>
                         </constraints>
                     </view>
@@ -46,7 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg (3)" width="621" height="1104"/>
-        <image name="logo" width="476.33334350585938" height="516.66668701171875"/>
+        <image name="splash" width="932" height="1656"/>
     </resources>
 </document>

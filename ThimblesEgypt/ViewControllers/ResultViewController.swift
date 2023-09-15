@@ -10,6 +10,7 @@ import UIKit
 class ResultViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,12 @@ class ResultViewController: UIViewController {
     //MARK: - Проверка статуса isWin
     private func checkIsWin() {
         switch GameViewController.isWin {
-        case true: imageView.image = UIImage(named: NameImage.winView.rawValue)
-        case false: imageView.image = UIImage(named: NameImage.loserView.rawValue)
+        case true:
+            backgroundImage.image = UIImage(named: NameImage.newBg.rawValue)
+            imageView.image = UIImage(named: NameImage.winView.rawValue)
+        case false:
+            backgroundImage.image = UIImage(named: NameImage.bg.rawValue)
+            imageView.image = UIImage(named: NameImage.loserView.rawValue)
         }
     }
 

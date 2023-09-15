@@ -12,12 +12,12 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ThimblesEgypt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="ThimblesEgypt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-cS-yD6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newbg" translatesAutoresizingMaskIntoConstraints="NO" id="HL1-cS-yD6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Rba-xK-mX1">
@@ -127,9 +127,10 @@
                                     <constraint firstAttribute="width" constant="50" id="w8t-Mf-pZj"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="res3"/>
+                                <state key="normal" image="res6"/>
                                 <connections>
-                                    <action selector="soundOnAction:" destination="NDu-RG-bjh" eventType="touchUpInside" id="NxZ-O8-zM6"/>
+                                    <action selector="backMenuAction:" destination="NDu-RG-bjh" eventType="touchUpInside" id="TgA-KM-pDv"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="McL-jp-Bdz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZl-ic-bMa">
@@ -261,6 +262,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="AI6-cY-9VU" id="xxR-ab-Rgg"/>
                         <outlet property="imageView" destination="J0a-JT-vB9" id="HyV-vC-eky"/>
                     </connections>
                 </viewController>
@@ -272,15 +274,16 @@
     <inferredMetricsTieBreakers>
         <segue reference="kYS-0t-EUG"/>
         <segue reference="KjW-bj-P2v"/>
+        <segue reference="RO1-JP-wKP"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Frame" width="1018.3333129882812" height="845"/>
         <image name="bg" width="1242" height="2208"/>
         <image name="chest" width="641.33331298828125" height="402"/>
         <image name="logo" width="476.33334350585938" height="516.66668701171875"/>
+        <image name="newbg" width="1242" height="2208"/>
         <image name="res1" width="298.33334350585938" height="298.33334350585938"/>
         <image name="res2" width="164.33332824707031" height="164.33332824707031"/>
-        <image name="res3" width="164" height="164.33332824707031"/>
         <image name="res4" width="164" height="164.33332824707031"/>
         <image name="res5" width="164" height="164.33332824707031"/>
         <image name="res6" width="164" height="163.66667175292969"/>

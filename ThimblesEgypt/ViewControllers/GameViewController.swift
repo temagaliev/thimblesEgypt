@@ -57,7 +57,7 @@ class GameViewController: UIViewController {
         startGame()
         settingsMusic()
         blockUsersInteractive(active: false)
-
+        checkStatusMusicForButtonImage()
     }
 
     
@@ -79,15 +79,17 @@ class GameViewController: UIViewController {
     
     //MARK: - Вкл/выкл музыка
     @IBAction func soundOffAction(_ sender: Any) {
-        offMusic()
-        GameViewController.isMusicOn = false
+        GameViewController.isMusicOn = !GameViewController.isMusicOn
+        switch GameViewController.isMusicOn {
+        case true: audio?.play()
+        case false: audio?.pause()
+        }
+        checkStatusMusicForButtonImage()
     }
     
-    @IBAction func soundOnAction(_ sender: UIButton) {
-        if audio?.isPlaying == false {
-            GameViewController.isMusicOn = true
-            audio?.play()
-        }
+    //MARK: - Назад в меню
+    @IBAction func backMenuAction(_ sender: UIButton) {
+        offMusic()
     }
     
     //MARK: - Запуск игры
@@ -321,7 +323,14 @@ class GameViewController: UIViewController {
     
     private func offMusic() {
         if audio?.isPlaying == true {
-            audio?.pause()
+            audio?.stop()
+        }
+    }
+    
+    private func checkStatusMusicForButtonImage() {
+        switch GameViewController.isMusicOn {
+        case true: soundOffButton.setImage(UIImage(named: NameImage.soundOn.rawValue), for: .normal)
+        case false: soundOffButton.setImage(UIImage(named: NameImage.soundOff.rawValue), for: .normal)
         }
     }
 

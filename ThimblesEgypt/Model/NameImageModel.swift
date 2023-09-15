@@ -21,4 +21,5 @@ enum NameImage: String  {
     case scorpion = "scorpion"
     case winView = "Frame"
     case loserView = "framlos"
+    case newBg = "newbg"
 }
