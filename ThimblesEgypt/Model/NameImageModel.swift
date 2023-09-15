@@ -22,4 +22,7 @@ enum NameImage: String  {
     case winView = "Frame"
     case loserView = "framlos"
     case newBg = "newbg"
+    case easy = "EASY"
+    case medium = "MEDIUM"
+    case hard = "HARD"
 }

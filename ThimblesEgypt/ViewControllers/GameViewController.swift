@@ -50,6 +50,9 @@ class GameViewController: UIViewController {
     let topPositionForConstraint: CGFloat = -130
     let centralPositionForConstraint: CGFloat = 0
     let bottomPositionForConstraint: CGFloat = 130
+    
+    var levelDifficulty: DifficultyLevel = ViewController.currentDifLevel
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,76 +112,80 @@ class GameViewController: UIViewController {
         
         //Определение количества циклов вращения ящиков
         let randomValue = Int.random(in: 3...6)
+        var timeDelay: Int = 700
+        switch levelDifficulty {
+        case .easy: timeDelay = 600
+        case .medium: timeDelay = 400
+        case .hard: timeDelay = 400
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
             switch randomValue {
             case 3:
-                self.rotationBox(timeDelay: 0)
+                self.rotationBox(timeDelay: timeDelay)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(1000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(2000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                     self.blockUsersInteractive(active: true)
                 })
             case 4:
-                self.rotationBox(timeDelay: 0)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(1000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(2000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(3000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                     self.blockUsersInteractive(active: true)
                 })
             case 5:
-                self.rotationBox(timeDelay: 0)
+                self.rotationBox(timeDelay: timeDelay)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(1000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(2000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(3000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(8), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(4000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                     self.blockUsersInteractive(active: true)
                 })
 
             case 6:
-                self.rotationBox(timeDelay: 0)
+                self.rotationBox(timeDelay: timeDelay)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(1000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(2000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(6), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(3000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(8), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(4000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(10), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(5000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                     self.blockUsersInteractive(active: true)
                 })
 
             default:
-                self.rotationBox(timeDelay: 0)
+                self.rotationBox(timeDelay: timeDelay)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(1000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                 })
-                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
-                    self.rotationBox(timeDelay: 0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(2000 * self.levelDifficulty.rawValue)), execute: {
+                    self.rotationBox(timeDelay: timeDelay)
                     self.blockUsersInteractive(active: true)
 
                 })
@@ -192,73 +199,77 @@ class GameViewController: UIViewController {
             switch self.winBoxConstraint.constant {
             case -130:
                 if loserBoxNumberOneConstraint.constant == 0 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay ), execute: {
-                        self.animationTopToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationCenterToTopElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0), execute: {
+                        self.animationTopToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationCenterToTopElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
                     })
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay + 1), execute: {
-                        self.animationCenterToBottomElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationBottomToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: {
+                        self.animationCenterToBottomElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationBottomToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
                     })
                 } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay), execute: {
-                        self.animationTopToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationCenterToTopElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0), execute: {
+                        self.animationTopToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationCenterToTopElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
                     })
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay + 1), execute: {
-                        self.animationCenterToBottomElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationBottomToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: {
+                        self.animationCenterToBottomElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationBottomToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
                     })
                     
                 }
                 
             case 0:
                 if loserBoxNumberOneConstraint.constant == -130 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay), execute: {
-                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationTopToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0), execute: {
+                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationTopToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
                     })
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay + 1), execute: {
-                        self.animationCenterToBottomElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
-                        self.animationBottomToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: {
+                        self.animationCenterToBottomElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
+                        self.animationBottomToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
                     })
                     
                 } else if loserBoxNumberOneConstraint.constant == 130 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay), execute: {
-                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationTopToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0), execute: {
+                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationTopToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
                     })
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay + 1), execute: {
-                        self.animationCenterToBottomElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
-                        self.animationBottomToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: {
+                        self.animationCenterToBottomElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
+                        self.animationBottomToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
                     })
-                    
-                    
-                    
+
                 }
             case 130:
                 if loserBoxNumberOneConstraint.constant == 0 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay), execute: {
-                        self.animationBottomToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationCenterToBottomElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
-                        
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0), execute: {
+                        self.animationBottomToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationCenterToBottomElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
+
                     })
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay + 1), execute: {
-                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationTopToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: {
+                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationTopToCenterElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
                     })
                 } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay), execute: {
-                        self.animationBottomToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationCenterToBottomElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint)
+
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(0), execute: {
+                        self.animationBottomToCenterElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationCenterToBottomElement(button: self.losersBoxNumberTwoButton, constraint: self.loserBoxNumberTwoConstraint, level: self.levelDifficulty)
                     })
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(timeDelay + 1), execute: {
-                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint)
-                        self.animationTopToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(timeDelay), execute: {
+                        self.animationCenterToTopElement(button: self.winBoxButton, constraint: self.winBoxConstraint, level: self.levelDifficulty)
+                        self.animationTopToCenterElement(button: self.losersBoxNumberOneButton, constraint: self.loserBoxNumberOneConstraint, level: self.levelDifficulty)
                     })
                     
                 }
@@ -337,7 +348,7 @@ class GameViewController: UIViewController {
 
     //MARK: - Анимация перемещения
     //центр -> вверх
-    private func animationCenterToTopElement(button: UIButton, constraint: NSLayoutConstraint) {
+    private func animationCenterToTopElement(button: UIButton, constraint: NSLayoutConstraint, level: DifficultyLevel) {
         let points = [CGPoint(x: view.center.x, y: view.center.y),
                       CGPoint(x: view.center.x - 50, y: view.center.y - 20),
                       CGPoint(x: view.center.x - 80, y: view.center.y - 40),
@@ -348,8 +359,19 @@ class GameViewController: UIViewController {
 
         let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         animation.values = points
-        animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
-        animation.duration = 0.7
+        
+        switch levelDifficulty {
+        case .easy:
+            animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
+            animation.duration = 0.7
+        case .medium:
+            animation.keyTimes = [0.0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49]
+            animation.duration = 0.49
+        case .hard:
+            animation.keyTimes = [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35]
+            animation.duration = 0.35
+        }
+        
 
         button.layer.add(animation, forKey: nil)
         
@@ -358,7 +380,7 @@ class GameViewController: UIViewController {
     }
     
     //вверх -> центр
-    private func animationTopToCenterElement(button: UIButton, constraint: NSLayoutConstraint) {
+    private func animationTopToCenterElement(button: UIButton, constraint: NSLayoutConstraint, level: DifficultyLevel) {
         let points = [CGPoint(x: view.center.x, y: view.center.y - 130),
                       CGPoint(x: view.center.x + 50, y: view.center.y - 100),
                       CGPoint(x: view.center.x + 80, y: view.center.y - 80),
@@ -369,8 +391,18 @@ class GameViewController: UIViewController {
 
         let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         animation.values = points
-        animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
-        animation.duration = 0.7
+
+        switch levelDifficulty {
+        case .easy:
+            animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
+            animation.duration = 0.7
+        case .medium:
+            animation.keyTimes = [0.0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49]
+            animation.duration = 0.49
+        case .hard:
+            animation.keyTimes = [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35]
+            animation.duration = 0.35
+        }
         
         button.layer.add(animation, forKey: nil)
         
@@ -378,7 +410,7 @@ class GameViewController: UIViewController {
     }
     
     //центр -> вниз
-    private func animationCenterToBottomElement(button: UIButton, constraint: NSLayoutConstraint) {
+    private func animationCenterToBottomElement(button: UIButton, constraint: NSLayoutConstraint, level: DifficultyLevel) {
         let points = [CGPoint(x: view.center.x, y: view.center.y),
                       CGPoint(x: view.center.x + 50, y: view.center.y + 20),
                       CGPoint(x: view.center.x + 80, y: view.center.y + 40),
@@ -389,8 +421,18 @@ class GameViewController: UIViewController {
 
         let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         animation.values = points
-        animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
-        animation.duration = 0.7
+
+        switch levelDifficulty {
+        case .easy:
+            animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
+            animation.duration = 0.7
+        case .medium:
+            animation.keyTimes = [0.0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49]
+            animation.duration = 0.49
+        case .hard:
+            animation.keyTimes = [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35]
+            animation.duration = 0.35
+        }
 
         button.layer.add(animation, forKey: nil)
         
@@ -399,7 +441,7 @@ class GameViewController: UIViewController {
     }
     
     //вниз -> центр
-    private func animationBottomToCenterElement(button: UIButton, constraint: NSLayoutConstraint) {
+    private func animationBottomToCenterElement(button: UIButton, constraint: NSLayoutConstraint, level: DifficultyLevel) {
         let points = [CGPoint(x: view.center.x, y: view.center.y + 130),
                       CGPoint(x: view.center.x - 50, y: view.center.y + 100),
                       CGPoint(x: view.center.x - 80, y: view.center.y + 80),
@@ -410,8 +452,18 @@ class GameViewController: UIViewController {
 
         let animation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         animation.values = points
-        animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
-        animation.duration = 0.7
+
+        switch levelDifficulty {
+        case .easy:
+            animation.keyTimes = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]
+            animation.duration = 0.7
+        case .medium:
+            animation.keyTimes = [0.0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49]
+            animation.duration = 0.49
+        case .hard:
+            animation.keyTimes = [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35]
+            animation.duration = 0.35
+        }
         
         button.layer.add(animation, forKey: nil)
         
